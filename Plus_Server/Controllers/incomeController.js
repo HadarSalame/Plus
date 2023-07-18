@@ -3,17 +3,18 @@ const Month = require("../Models/monthModel");
 
 const createIncome = async (req, res) => {
   const income = req.body;
-  console.log("income ", income);
   try {
     let new_income = await new Income(income);
     await new_income.save();
     const monthId = new_income.month;
+    const in_sum = new_income.sum;
     const addIncomeToMonth = await Month.findOne({ _id: monthId });
-    console.log("monthId", addIncomeToMonth);
-    addIncomeToMonth.incomes.push(new_income)
+    const sum = addIncomeToMonth.sum_incomes + in_sum;
+    addIncomeToMonth.incomes.push(new_income);
     await Month.findByIdAndUpdate(monthId, addIncomeToMonth, {
       new: true,
     });
+    await Month.findOneAndUpdate(addIncomeToMonth._id, { sum_incomes: sum });
     res.status(201).json({ message: "Added successfully", new_income });
   } catch {
     res.status(401).json({ message: "Cannot create an object" });
@@ -53,7 +54,14 @@ const getIncome = async (req, res) => {
 const deleteIncome = async (req, res, next) => {
   const { id: incomeID } = req.params;
   const income = await Income.findOne({ _id: incomeID });
-  await Month.updateMany({ incomes: incomeID }, { $pull: { incomes: incomeID } });
+  const minus = income.sum;
+  const themonth = await Month.findById(income.month);
+  await Month.updateMany(
+    { incomes: incomeID },
+    { $pull: { incomes: incomeID } }
+  );
+  const sum = themonth.sum_incomes - minus;
+  await Month.findOneAndUpdate(themonth._id, { sum_incomes: sum });
   await Income.findOneAndDelete({ _id: incomeID });
   if (!income) {
     res.status(401).json({ message: "Cannot delete the object" });
@@ -66,5 +74,5 @@ module.exports = {
   getAllIncome,
   updateIncome,
   getIncome,
-  deleteIncome
+  deleteIncome,
 };

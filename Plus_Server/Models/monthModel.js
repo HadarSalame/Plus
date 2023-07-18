@@ -1,21 +1,5 @@
 const mongoose = require("mongoose");
 
-// const m={
-//    1:'January',
-//    2:'February ',
-//    3:'March ',
-//    4:'April ',
-//    5:'May ',
-//    6:'June',
-//    7:'July ',
-//    8:'August ',
-//    9:'September',
-//    10:'October ',
-//    11:'November',
-//    12:'December',
-
-// }
-
 function thisMonth() {
   var now = new Date().getMonth()+1;
   return now;
@@ -53,6 +37,16 @@ const MonthSchema = new mongoose.Schema({
       ref: "Income",
     },
   ],
+  sum_expenses:{
+    type:Number,
+    require,
+    default:0
+  },
+  sum_incomes:{
+    type:Number,
+    require,
+    default:0
+  }
 });
 
 module.exports = mongoose.model("Month", MonthSchema);

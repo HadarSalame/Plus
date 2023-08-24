@@ -9,6 +9,9 @@ import TrackChangesIcon from "@mui/icons-material/TrackChanges";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useNavigate } from "react-router-dom";
+import Login from "./components/Login";
+import { useState } from "react";
+import SignUp from "./components/SignUp";
 
 function App() {
   let navigate = useNavigate();
@@ -22,17 +25,43 @@ function App() {
     navigate("/Targets");
   }
 
+  const [isLoginShow, setIsLoginShow] = useState();
+  function closeLoginModal() {
+    setIsLoginShow(false);
+  }
+
+  const [isSignUpShow, setIsSignUpShow] = useState();
+  function closeSignUpModal() {
+    setIsSignUpShow(false);
+  }
+
   return (
     <>
       <div className="page">
-        <div >
-          <div style={{display:"flex"}}>
+        <div>
+          <div style={{ display: "flex" }}>
             <img src={logo} className="App-logo" alt="logo" />
-            <div className="SignandLog">
-              <PersonAddAlt1Icon className="Icon" sx={{ fontSize: 35 }} />
-              <LoginIcon className="Icon" sx={{ fontSize: 30 }} />
+             <div className="SignandLog">
+              <PersonAddAlt1Icon
+                className="Icon"
+                sx={{ fontSize: 35 }}
+                onClick={setIsSignUpShow}
+              />
+              {isSignUpShow && (
+                <SignUp show={isSignUpShow} setShow={closeSignUpModal} />
+              )}
+
+              <LoginIcon
+                className="Icon"
+                sx={{ fontSize: 30 }}
+                onClick={setIsLoginShow}
+              />
+              {isLoginShow && (
+                <Login show={isLoginShow} setShow={closeLoginModal} />
+              )}
             </div>
           </div>
+         
           <div className="Nav">
             <Sidebar>
               <Sidebar.Items>

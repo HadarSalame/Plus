@@ -21,6 +21,10 @@ const TargetSchema = mongoose.Schema({
     type:Number,
     require
   },
+  total_sum:{
+    type:Number,
+    require
+  },
   sucsses:{
     type:Boolean,
     default:false,

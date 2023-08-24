@@ -29,6 +29,7 @@
  color: #7ed957 !important;
  width: 500px;
  margin: 10px;
+ cursor: pointer;
 
 }
 
@@ -77,6 +78,28 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.btn{   
+  color: white !important;
+  background-color: #7ed957 !important;
+  text-align: center;
+  margin: 1!;
+  margin: 1%;
+  font-weight: bold;
+  /* border: none; */
+  border-radius: 5%;
+  border-style: none;
+  padding: 1%;
+}
+
+.alertModal{
+  align-items: center !important;
+  display: flex;
+  flex-direction: column !important;
+}
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root.Mui-checked {
+  color:#7ed957 !important
 }
 
 /* @keyframes App-logo-spin {

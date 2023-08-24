@@ -8,21 +8,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Expenses from "./components/Expenses.js";
 import Insertions from "./components/Insertions.js";
 import Targets from "./components/Targets.js";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
       <App />
       <Routes>
         <Route path="/Expenses" element={<Expenses/>}/>
         <Route path="/Insertions" element={<Insertions/>}/>
         <Route path="/Targets" element={<Targets/>}/>
-
-
-
       </Routes>
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

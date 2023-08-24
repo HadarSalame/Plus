@@ -38,12 +38,15 @@ app.use('/api/v1/income', income_route)
 const target_route = require("./Routers/targetRouter")
 app.use('/api/v1/target', target_route)
 
+const category_route = require("./Routers/categoryRouter")
+app.use('/api/v1/category', category_route)
+
 const connectionString = process.env.MONGO_URL;
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
-const port = 3000
+const port = 3030
 MongoClient.connect(connectionString)
     .then(client => {
     console.log(`Connected to Database`)

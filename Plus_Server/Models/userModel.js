@@ -25,7 +25,7 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     require,
-    maxlength: [15, "The password must contain 8 to 15 characters"],
+    maxlength: [12, "The password must contain 8 to 12 characters"],
   },
   monthly:[ {
     type: mongoose.Schema.Types.ObjectId,

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 function thisMonth() {
-  var now = new Date().getMonth()+1;
+  var now = new Date().getMonth() + 1;
   return now;
 }
 
@@ -9,12 +9,11 @@ const MonthSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    
   },
   mon: {
     type: String,
     require,
-    default: thisMonth().toString()
+    default: thisMonth().toString(),
   },
   year: {
     type: String,
@@ -37,16 +36,20 @@ const MonthSchema = new mongoose.Schema({
       ref: "Income",
     },
   ],
-  sum_expenses:{
-    type:Number,
+  sum_expenses: {
+    type: Number,
     require,
-    default:0
+    default: 0,
   },
-  sum_incomes:{
-    type:Number,
+  sum_incomes: {
+    type: Number,
     require,
-    default:0
-  }
+    default: 0,
+  },
+  categories_sum:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+  }]
 });
 
 module.exports = mongoose.model("Month", MonthSchema);

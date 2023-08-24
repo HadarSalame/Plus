@@ -7,7 +7,6 @@ const ExpensesSchema = new mongoose.Schema({
     },
     date:{
         type:Date,
-        require,
         default: new Date().toISOString().split("T")[0]
     },
     name:{

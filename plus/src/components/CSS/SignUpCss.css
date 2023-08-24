@@ -1,0 +1,61 @@
+.modal{
+    width:50%;
+    height:max-content !important;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    padding: 2%;
+    text-align: center;
+    border-color: #7ed957;
+    border-style: solid;
+    border-radius: 5%;
+    background-color: white !important;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    
+}
+.modal_details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    direction: ltr;
+    height: 100% !important;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+color: #000 !important;
+font-weight: 400;
+}
+
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline{
+    border-color: #7ed957 !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root{
+    display: flex !important;
+    color: #7ed957;
+}
+.mb-3{
+    direction: rtl;
+    display: flex;
+    margin: 1%;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    margin: 2% !important;
+    width: 70%;
+}
+.send{
+    color: white;
+    background-color: #7ed957;
+    border-color: #7ed957;
+    border-style: solid;
+
+}
+.ref_btn{
+    color: #7ed957;
+    background-color: white!important;
+    border-color: #7ed957;
+    border-style: solid;
+}

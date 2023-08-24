@@ -1,0 +1,27 @@
+.select{
+    width: auto;
+    height: 56px;
+    color: black !important;
+}
+.modal_body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* textfild */
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
+    width: 100% !important;
+}
+/* select */
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    margin: 2% !important;
+    width: 70%;
+
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
+    background-color: rgb(146 152 147 / 16%);
+}
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #7ed957;
+    border-width: 2px;
+}

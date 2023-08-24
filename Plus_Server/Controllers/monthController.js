@@ -2,19 +2,20 @@ const Month = require("../Models/monthModel");
 const User = require("../Models/userModel");
 
 const creatMonth = async (req, res) => {
+  console.log("heeeee");
   const month = req.body;
-  console.log("month   ", month);
+  console.log("month", month);
   try {
     let new_month = await new Month(month);
-    console.log("newmonth", new_month);
     await new_month.save();
     const userId = new_month.user;
     const addMonthToUser = await User.findOne({ _id: userId });
-    console.log("userid", userId);
+    console.log("userid444", userId);
     addMonthToUser.monthly.push(new_month);
     await User.findByIdAndUpdate(userId, addMonthToUser, {
       new: true,
     });
+    console.log("newmonth to check", new_month);
     res.status(201).json({ message: "Added successfully", new_month });
   } catch {
     res.status(401).json({ message: "Cannot create an object" });
